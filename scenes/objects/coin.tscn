@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dld5tcnsp1wrv"]
+[gd_scene load_steps=15 format=3 uid="uid://dld5tcnsp1wrv"]
 
+[ext_resource type="Script" path="res://scenes/objects/coin.gd" id="1_r8chm"]
 [ext_resource type="Texture2D" uid="uid://coqgfriyo5kh8" path="res://assets/coin/coin-frame-1.png" id="1_r5647"]
 [ext_resource type="Texture2D" uid="uid://yjv26iptioh4" path="res://assets/coin/coin-frame-2.png" id="2_ii8dc"]
 [ext_resource type="Texture2D" uid="uid://dlehkgiktmp47" path="res://assets/coin/coin-frame-3.png" id="3_57lgn"]
@@ -56,8 +57,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ic04"]
 radius = 25.02
 
-[node name="Coin" type="Area2D"]
+[node name="Coin" type="Area2D" groups=["coins"]]
 scale = Vector2(0.4, 0.4)
+script = ExtResource("1_r8chm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uscoa")
