@@ -1,6 +1,7 @@
 extends Area2D
 
 signal pickup
+signal hurt
 
 @export var speed: float = 500
 
@@ -25,12 +26,21 @@ func start():
 	set_process(true)
 	position = screensize * 0.5
 	$AnimatedSprite2D.animation = "idle"
+	
+func die():
+	$AnimatedSprite2D.animation = "hurt"
+	set_process(false)
 
 func _on_area_entered(area):
 	if area.is_in_group("coins"):
 		area.pickup()
-		pickup.emit()
-
+		pickup.emit("coins")
+	if area.is_in_group("powerups"):
+		area.pickup()
+		pickup.emit("powerups")	
+	if area.is_in_group("obstacles"):
+		die()
+		hurt.emit()
 
 
 

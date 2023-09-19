@@ -13,6 +13,9 @@ func pickup():
 	await tw.finished
 	queue_free()
 
+func _on_life_time_timeout():
+	queue_free()
+
 func _on_timer_timeout():
 	$AnimatedSprite2D.frame = 0
 	$AnimatedSprite2D.play()
